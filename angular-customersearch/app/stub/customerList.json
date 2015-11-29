@@ -1,0 +1,6 @@
+[
+    {"name": "Ranjan Phukan", "customerId": "123", "type": "Premier"},
+    {"name": "Renita Phukan", "customerId": "456", "type": "Standard"},
+    {"name": "Rashmi Phukan", "customerId": "789", "type": "Premier"},
+	{"name": "Renita Gogoi", "customerId": "1011", "type": "Standard"}
+  ]

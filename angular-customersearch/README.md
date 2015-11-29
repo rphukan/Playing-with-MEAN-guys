@@ -1,0 +1,1 @@
+A simple customer serach application using angularjs

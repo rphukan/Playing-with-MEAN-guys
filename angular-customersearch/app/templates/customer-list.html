@@ -1,0 +1,20 @@
+<div>
+		<div>
+			Customer Search: <input ng-model="query">
+		</div>
+		<div>
+			<span>Order by</span>
+			<select ng-model="orderProperty">
+			  <option value="name">Alphabetical</option>
+			  <option value="type">Type</option>
+			</select>		
+		</div>
+		<table>
+			<th>Name</th><th>Id</th><th>Type</th>
+			<tr ng-repeat="customer in customers | filter:query | orderBy:orderProperty">
+				<td>{{customer.name}}</td>
+				<td><a href="#/customer/{{customer.customerId}}">{{customer.customerId}}</a></td>
+				<td>{{customer.type}}</td>
+			</tr>
+		</table>
+</div>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			window.onload = function(){
+				var socket = io.connect();
+								
+				socket.on('connect', function () {
+					socket.on('message', function(message) {
+						document.getElementById('msgwindow').value += message + '\n';
+					});
+				});
+
+				var el = document.getElementById('chatwindow');
+				document.getElementById('chatwindow').addEventListener("keypress", function(e) {
+					if(e.which == 13) {
+						e.preventDefault();
+						socket.emit('new-message', el.value);
+						document.getElementById('msgwindow').value += el.value + '\n';
+						el.value = '';
+					}
+				});
+			};
+		</script>		
+	</head>
+	<body>
+		<div><h2>Welcome to MyChat.</h2></div>
+		<div><textarea id="msgwindow" rows="20" cols="50" readonly="true"></textarea></div>
+		<div><h4>Type below and press enter to send.</h4></div>
+		<div><textarea id="chatwindow" rows="4" cols="50"></textarea></div>
+	</body>
+</html>
